@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Formulário</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel ='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='script.js'></script>
+</head>
+<body>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+   <!-- <script src='../javascript/autocomplete_cep.js'></script>-->
+
+
+    <form id="formCadastro" method="post" >
+
+    <div id="dados_pessoais" class="bloco_input">    
+    <legend>Dados Pessoais</legend>
+    
+        <label for="nome">Nome Completo:</label>
+        <input id="nome" type="text" name="nome" required>
+        <br>
+        <label for="nascimento">Data de Nascimento:</label>
+        <input id="nascimento" type="date" name="data_nasc" required>
+        <br>
+        <label >Gênero:</label>
+        <br>
+        <input id="genero_fem" type="radio" name="genero" value="Feminino" required > <label for="genero_fem">Feminino</label>
+        <br>
+        <input id="genero_masc" type="radio" name="genero" value="Masculino" required > <label for="genero_masc">Masculino</label>
+        <br>
+        <input id="genero_neutro" type="radio" name="genero" value="Neutro / Não informar" required > <label for="genero_neutro">Neutro / Não informar</label>
+        <br>
+        
+        <label for="cep">CEP:</label>
+        <input id="cep" type="number" name="cep">
+        <br>
+        <label for="nacionalidade">Nacionalidade:</label>
+        <input id="nacionalidade" type="text" name="nacionalidade" required>
+        <br>
+        <label for="endereco">Endereço:</label>
+        <input id="endereco" type="text" name="endereco" required>
+        <br>
+        <label for="numero_casa">Número:</label>
+        <input id="numero_casa" type="number" name="numero_casa" required>
+        <br>
+        <label for="cidade">Cidade:</label>
+        <input id="cidade" type="text" name="cidade" required>
+        <br>
+        <label for="uf">Estado</label>
+		<select id="uf" required>
+			<option value="AC">Acre</option>
+			<option value="AL">Alagoas</option>
+			<option value="AP">Amapá</option>
+			<option value="AM">Amazonas</option>
+			<option value="BA">Bahia</option>
+			<option value="CE">Ceará</option>
+			<option value="DF">Distrito Federal</option>
+			<option value="ES">Espírito Santo</option>
+			<option value="GO">Goiás</option>
+			<option value="MA">Maranhão</option>
+			<option value="MT">Mato Grosso</option>
+			<option value="MS">Mato Grosso do Sul</option>
+			<option value="MG">Minas Gerais</option>
+			<option value="PA">Pará</option>
+			<option value="PB">Paraíba</option>
+			<option value="PR">Paraná</option>
+			<option value="PE">Pernambuco</option>
+			<option value="PI">Piauí</option>
+			<option value="RJ">Rio de Janeiro</option>
+			<option value="RN">Rio Grande do Norte</option>
+			<option value="RS">Rio Grande do Sul</option>
+			<option value="RO">Rondônia</option>
+			<option value="RR">Roraima</option>
+			<option value="SC">Santa Catarina</option>
+			<option value="SP">São Paulo</option>
+			<option value="SE">Sergipe</option>
+			<option value="TO">Tocantins</option>
+		</select>
+        <br>
+        <label for="telefone">Telefone:</label>
+        <input id="telefone" type="tel" name="telefone">
+
+    </div>
+        
+
+        <div id="formacao_academica" class="bloco_input">
+        <label >Formação Acadêmica:</label>
+        <br>
+        <input id="formacao_info" type="radio" name="formacao" > <label for="formacao_info">Técnico em Informática</label>
+        <br>
+        <input id="formacao_tads" type="radio" name="formacao"> <label for="formacao_tads">Análise e Desenvolvimento de Sistemas</label>
+        <br>
+        <label for="outra_formacao">Além da formação técnicas profissional ofertada no IFTO, já possui algum outro tipo de curso ? Se sim, qual?:</label>
+        <input id="outra_formacao" type="text" name="outra_formacao">
+        </div>
+        <br>
+        <div id="experiencias_profissionais" class="bloco_input">
+        <legend>Experiências Profissionais</legend>
+        <br>
+
+        <button type="button" id="adExp" onclick="addExp()">Adicionar</button>
+
+        <input id="sem_experiencia" type="radio" name="sem_experiencia"> <label for="sem_experiencia">Não possuo</label>
+        <br>
+
+        <div id="xpProfissionais">
+
+
+
+        </div>
+
+        <!-- <label for="outra_experiencia">Outras experiências:</label>
+        <input id="outra_experiencia" type="text" name="outra_experiencia">-->
+        
+    </div>
+
+        <div id="habilidades_idiomas" class="bloco_input"></div>
+        <legend>Habilidades Técnicas e Idiomas</legend>
+        <br>
+        <label for="habilidade_tecnica">Habilidades Relevantes:</label>
+        <input id="habilidade_tecnica" type="text" name="habilidades_tecnica">
+        <br>
+        <label for="idiomas">Possui habilidades com idiomas ? Qual Língua:</label>
+        <input id="idiomas" type="text" name="idiomas">
+        <br>
+        <label >Nível de Proficiência:</label>
+        <input id="basico" type="radio" name="proficiencia" value="Básico" required> <label for="basico">Básico</label>
+        <input id="intermediario" type="radio" name="proficiencia" value="Intermediário" required> <label for="intermediario">Intermediário</label>
+        <input id="avancado" type="radio" name="proficiencia" value="Avançado" required> <label for="avancado">Avançado</label>
+        <input id="fluente" type="radio" name="proficiencia" value="Fluente" required> <label for="fluente">Fluente</label>
+        <br>
+        <label for="habilidade_comportamental">Habilidades Comportamentais:</label>
+        <input id="habilidade_comportamental" type="text" name="habilidades_comportamental">
+        <br>
+        </div>
+
+        <div id="informacoes_adicionais" class="bloco_input"></div>
+        <legend>Informações Adicionais</legend>
+        <label for="pretencao_salarial">Pretenção Salarial:</label>
+        <input id="pretencao_salarial" type="number" name="pretencao_salarial">
+
+        <label for="disponibilidade">Disponibilidade para começar:</label>
+        <input id="disponibilidade" type="text" name="disponibilidade">
+    </div>
+
+    <button id="Botao" type="submit" onclick="campos()">Salvar</button>
+
+    </form>
+
+
+    <script>
+        $(function(){
+               $("#formCadastro").validate({
+
+               messages:{
+                  nome:{ required: 'Informe seu nome'},
+                  data_nasc:{ required: 'Informe sua data de nascimento'},
+                  telefone:{ required: 'Informe seu telefone'},
+                  uf:{ required: 'Informe seu estado'},
+                  cidade:{ required: 'Informe sua cidade'},
+                  numero_casa:{ required: 'Informe o número da sua casa'},
+                  endereco:{ required: 'Informe seu endereço'},
+                  nacionalidade:{ required: 'Informe sua nacionalidade'}
+            }
+     
+     
+           } );
+        });
+     </script>
+
+
+
+  <script type="text/javascript">
+      $("#cep").focusout(function(){
+          //Início do Comando AJAX
+          $.ajax({
+              //O campo URL diz o caminho de onde virá os dados
+              //É importante concatenar o valor digitado no CEP
+              url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/',
+              //Aqui você deve preencher o tipo de dados que será lido,
+              //no caso, estamos lendo JSON.
+              dataType: 'json',
+              //SUCESS é referente a função que será executada caso
+              //ele consiga ler a fonte de dados com sucesso.
+              //O parâmetro dentro da função se refere ao nome da variável
+              //que você vai dar para ler esse objeto.
+              success: function(resposta){
+                  //Agora basta definir os valores que você deseja preencher
+                  //automaticamente nos campos acima.
+                  //$("#logradouro").val(resposta.logradouro);
+                  //$("#complemento").val(resposta.complemento);
+                  $("#endereco").val(resposta.bairro);
+                  $("#cidade").val(resposta.localidade);
+                  $("#uf").val(resposta.uf);
+                  //Vamos incluir para que o Número seja focado automaticamente
+                  //melhorando a experiência do usuário
+                  $("#numero_casa").focus();
+              }
+          });
+      });
+  </script>
+ 
+</body>
+</html>

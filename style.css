@@ -1,0 +1,50 @@
+
+* {
+    border: 0px;
+    Margin: 0px;
+    padding: 0px;
+}
+
+/*
+.bloco_input{
+margin: 5px;   
+border: solid 1px black;
+}
+*/
+
+input{
+    display: inline-block;
+    padding:10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+body{
+    background-color: #60BF81;
+}
+
+#formCadastro{
+    background-color: #3B8C66;
+    color: aliceblue;
+    display: block;
+    padding: 10px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px black ;
+}
+
+legend{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.BlocoExperiencia{
+    padding-bottom: 5px;
+    border-bottom: 2px solid white;
+}
+
+
